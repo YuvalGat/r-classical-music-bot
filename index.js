@@ -6,12 +6,12 @@ const funcs = require('./funcs');
 
 const client = new Discord.Client();
 const commands = [
-    new Command('test', funcs.test)
+    new Command('title', funcs.getTitleByLink)
 ];
 
 client.on('message', msg => {
     for (const command of commands) {
-        if(msg.content.startsWith(`!${command.name}`)) {
+        if(msg.content.startsWith(`~${command.name}`)) {
             command.execute(msg);
         }
     }
